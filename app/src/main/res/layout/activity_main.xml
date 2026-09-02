@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_dark">
+
+    <!-- Canvas Preview 9:16 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardBackgroundColor="#000000"
+        app:layout_constraintDimensionRatio="9:16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/controlPanel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.media3.ui.PlayerView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:use_controller="false" />
+
+            <!-- Keranjang Kuning Badge -->
+            <LinearLayout
+                android:id="@+id/cartBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="12dp"
+                android:background="@color/gold_cart"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txtCartTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🛒 Etalase #1 Disematkan"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Marquee Running Text -->
+            <TextView
+                android:id="@+id/txtMarquee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="#80000000"
+                android:padding="6dp"
+                android:text="🔥 PROMO FLASH SALE HARI INI • GRATIS ONGKIR SELURUH INDONESIA • COD AKTIF 🔥"
+                android:textColor="@color/white"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:textSize="11sp" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Control Panel -->
+    <LinearLayout
+        android:id="@+id/controlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@color/card_dark"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <EditText
+            android:id="@+id/inputRtmpUrl"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#2A2B36"
+            android:hint="RTMP Server URL"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_gray"
+            android:paddingHorizontal="10dp"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/inputStreamKey"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="6dp"
+            android:background="#2A2B36"
+            android:hint="Stream Key (TikTok Producer)"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/text_gray"
+            android:paddingHorizontal="10dp"
+            android:textSize="12sp" />
+
+        <!-- Quick Switch Etalase -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnEtalase1"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:text="Pin No. 1"
+                android:textSize="10sp"
+                android:backgroundTint="@color/gold_cart"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/btnEtalase2"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:text="Pin No. 2"
+                android:textSize="10sp"
+                android:backgroundTint="#2A2B36"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btnSelectVideo"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1.2"
+                android:layout_marginStart="6dp"
+                android:text="Pilih Video"
+                android:textSize="10sp"
+                android:backgroundTint="@color/tiktok_cyan"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <!-- Status & Live Button -->
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Status: Siap (Loop Active)"
+            android:textColor="@color/text_gray"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btnToggleLive"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:text="MULAI SIARAN LIVE"
+            android:textStyle="bold"
+            android:backgroundTint="@color/tiktok_red"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
